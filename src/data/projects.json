@@ -1,26 +1,26 @@
 [
   {
-    "title": "Project A",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "BusHub - Bus Tracking and Seat Booking App",
+    "imageSrc": "projects/bushub.png",
+    "description": "Developed a Flutter app for real-time bus tracking and seat booking. Integrated Firebase for backend services, enabling user authentication, live seat updates, and notifications.",
+    "skills": ["Dart", "Flutter", "Firebase", "Firestore", "Google Maps API", "Google Cloud Platform", "Stripe API", "Github"],
+    "demo": "#",
+    "source": "#"
   },
   {
-    "title": "Project B",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node", "Sass"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "JETSET GO - Flight Allocation Web App",
+    "imageSrc": "projects/jetsetgo.png",
+    "description": "Built a web app to streamline communication between pilots and engineers, improving flight allocation efficiency and web browser compatibility.",
+    "skills": ["HTML", "CSS", "PHP", "Laravel", "MySQL", "Bootstrap"],
+    "demo": "#",
+    "source": "#"
   },
   {
-    "title": "Project C",
-    "imageSrc": "projects/project.png",
-    "description": "This is a project made to learn the latest languages by building an app.",
-    "skills": ["React", "Express", "Node"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "MartChat - Supermarket Chatbot",
+    "imageSrc": "projects/martchat.png",
+    "description": "Created a Python-based chatbot using Flask to assist supermarket customers in finding items and generating shopping lists. Integrated NLP and PDF generation for real-time item location prediction and list creation.",
+    "skills": ["Python", "Flask", "NLP (NLTK)", "ReportLab", "HTML", "Bootstrap"],
+    "demo": "#",
+    "source": "#"
   }
 ]
