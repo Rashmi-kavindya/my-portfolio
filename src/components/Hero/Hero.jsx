@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Hero.module.css";
 import heroImage from "../../assets/hero/heroImage.png";
+import resume from "../../assets/Resume.pdf"; 
 import { Typewriter } from "react-simple-typewriter";
 
 export const Hero = () => {
@@ -11,7 +12,7 @@ export const Hero = () => {
 
         <h2 className={styles.description}>
           I am a{" "}
-          <span style={{ color: "#0ef" }}> {/* you can style this color or remove */}
+          <span style={{ color: "#0ef" }}>
             <Typewriter
               words={[
                 "Full Stack Developer",
@@ -28,9 +29,16 @@ export const Hero = () => {
           </span>
         </h2>
 
-        <a href="mailto:rashmikavindya40@gmail.com" className={styles.contactBtn}>
-          Contact Me
-        </a>
+        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <a href="mailto:rashmikavindya40@gmail.com" className={styles.contactBtn}>
+            Contact Me
+          </a>
+          <a href={resume} download className={styles.contactBtn}>
+            Download CV
+          </a>
+        </div>
+
+
       </div>
 
       <img
