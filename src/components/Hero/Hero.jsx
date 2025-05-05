@@ -16,7 +16,7 @@ export const Hero = () => {
             <Typewriter
               words={[
                 "Full Stack Developer",
-                "AI/ML En thusiast",
+                "AI/ML Enthusiast",
                 "Data Engineering Enthusiast"
               ]}
               loop={0}
