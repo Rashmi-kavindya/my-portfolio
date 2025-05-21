@@ -1,3 +1,5 @@
+ /* About.module.css
+
 @import "../../vars.css";
 
 .container {
@@ -88,5 +90,102 @@
   .aboutItem {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+ */
+
+ @import "../../vars.css";
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: rgba(12, 12, 12, 0.6);
+  border-radius: 15px;
+  padding: 73px;
+  margin: 129px 10% 0 10%;
+  z-index: 1;
+}
+
+.textZone {
+  width: 50%;
+  color: var(--color-text);
+}
+
+.textZone h2 {
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.textZone p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.cubeContainer {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cubespinner {
+  animation: spincube 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px 0;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: auto;
+}
+
+.cubespinner div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px lightblue;
+  border: 1px solid #ccc;
+}
+
+.face1 { transform: translateZ(100px); }
+.face2 { transform: rotateY(90deg) translateZ(100px); }
+.face3 { transform: rotateY(90deg) rotateX(90deg) translateZ(100px); }
+.face4 { transform: rotateY(180deg) rotateZ(90deg) translateZ(100px); }
+.face5 { transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px); }
+.face6 { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes spincube {
+  from, to { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  16%     { transform: rotateY(-90deg) rotateZ(90deg); }
+  33%     { transform: rotateY(-90deg) rotateX(90deg); }
+  50%     { transform: rotateY(-180deg) rotateZ(90deg); }
+  66%     { transform: rotateY(-270deg) rotateX(90deg); }
+  83%     { transform: rotateX(90deg); }
+}
+
+@media screen and (max-width: 830px) {
+  .container {
+    flex-direction: column;
+    padding: 30px;
+    margin: 50px 5%;
+  }
+
+  .textZone, .cubeContainer {
+    width: 100%;
+  }
+
+  .cubespinner {
+    margin-top: 50px;
   }
 }
