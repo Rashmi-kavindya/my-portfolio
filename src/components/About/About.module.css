@@ -104,8 +104,19 @@
   background-color: rgba(12, 12, 12, 0.6);
   border-radius: 15px;
   padding: 73px;
-  margin: 129px 10% 0 10%;
+  margin: 50px 10% 0 10%;
   z-index: 1;
+  background-color: transparent;
+  transition: background 0.8s ease-in-out;
+}
+
+.container:hover {
+  background: linear-gradient(
+    90deg,
+    #19376d 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: gradientFadeIn 2s ease forwards;
 }
 
 .textZone {
@@ -116,6 +127,7 @@
 .textZone h2 {
   font-size: 35px;
   font-weight: 700;
+  background-color: white;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -187,5 +199,52 @@
 
   .cubespinner {
     margin-top: 50px;
+  }
+}
+
+.titleWrapper {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px; 
+  animation: dropIn 1s ease forwards;
+  opacity: 0;
+}
+
+.fallHeading {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: white; 
+}
+
+.underline {
+  margin: 0 auto;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, rgba(0, 188, 212, 0.5), rgba(0, 188, 212, 1), rgba(0, 188, 212, 0.5));
+  border-radius: 2px;
+  animation: underlineGrow 1s ease forwards;
+}
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes underlineGrow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 80px;
+    opacity: 1;
   }
 }

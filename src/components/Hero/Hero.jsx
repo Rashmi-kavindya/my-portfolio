@@ -6,7 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 export const Hero = () => {
   return (
-    <section className={styles.container} id="about">
+    <section className={styles.container} id="hero">
       <div className={styles.content}>
         <h1 className={styles.title}>Hi, I'm Rashmi!</h1>
 
