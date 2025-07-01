@@ -1,12 +1,27 @@
+/* Navbar.module.css */
+
 @import "../../vars.css";
 
-.navbar {
+/* .navbar {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 61px;
   z-index: 2;
+  margin: 0 10%;
+} */
+.navbar {
+  position: fixed; /* Changed from relative to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 61px;
+  z-index: 999; /* Make sure it stays above other content */
+  background-color: var(--color-bg); /* Optional: Add a background to avoid transparency */
   margin: 0 10%;
 }
 
@@ -16,7 +31,6 @@
   text-decoration: none;
   color: var(--color-text);
 }
-
 
 .menuBtn {
   display: none;
