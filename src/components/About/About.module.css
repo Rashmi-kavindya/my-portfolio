@@ -1,56 +1,61 @@
- /* About.module.css*/
-
- @import "../../vars.css";
+@import "../../vars.css";
 
 .container {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: rgba(12, 12, 12, 0.6);
-  border-radius: 15px;
-  padding: 73px;
-  margin: 50px 10% 0 10%;
-  z-index: 1;
-  background-color: transparent;
-  transition: background 0.8s ease-in-out;
+  padding: 100px 8%;
+  color: var(--text);
 }
 
-.container:hover {
-  background: linear-gradient(
-    90deg,
-    #19376d 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: gradientFadeIn 2s ease forwards;
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.sectionLine {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .textZone {
-  width: 50%;
-  color: var(--color-text);
-}
-
-.textZone h2 {
-  font-size: 35px;
-  font-weight: 700;
-  background-color: white;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  width: 100%;
 }
 
 .textZone p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 15px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.textZone p:last-child {
+  margin-bottom: 0;
 }
 
 .cubeContainer {
-  width: 50%;
-  height: 100%;
-  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 240px;
 }
 
 .cubespinner {
@@ -70,10 +75,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 20px lightblue;
-  border: 1px solid #ccc;
+  font-size: 90px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
 }
 
 .face1 { transform: translateZ(100px); }
@@ -85,72 +90,26 @@
 
 @keyframes spincube {
   from, to { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  16%     { transform: rotateY(-90deg) rotateZ(90deg); }
-  33%     { transform: rotateY(-90deg) rotateX(90deg); }
-  50%     { transform: rotateY(-180deg) rotateZ(90deg); }
-  66%     { transform: rotateY(-270deg) rotateX(90deg); }
-  83%     { transform: rotateX(90deg); }
+  16%      { transform: rotateY(-90deg) rotateZ(90deg); }
+  33%      { transform: rotateY(-90deg) rotateX(90deg); }
+  50%      { transform: rotateY(-180deg) rotateZ(90deg); }
+  66%      { transform: rotateY(-270deg) rotateX(90deg); }
+  83%      { transform: rotateX(90deg); }
 }
 
-@media screen and (max-width: 830px) {
-  .container {
-    flex-direction: column;
-    padding: 30px;
-    margin: 50px 5%;
+@media screen and (min-width: 831px) {
+  .content {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
   }
 
-  .textZone, .cubeContainer {
-    width: 100%;
+  .textZone {
+    width: 55%;
   }
 
-  .cubespinner {
-    margin-top: 50px;
-  }
-}
-
-.titleWrapper {
-  text-align: center;
-  margin-top: 80px;
-  margin-bottom: 40px; 
-  animation: dropIn 1s ease forwards;
-  opacity: 0;
-}
-
-.fallHeading {
-  font-size: 35px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  color: white; 
-}
-
-.underline {
-  margin: 0 auto;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, rgba(0, 188, 212, 0.5), rgba(0, 188, 212, 1), rgba(0, 188, 212, 0.5));
-  border-radius: 2px;
-  animation: underlineGrow 1s ease forwards;
-}
-
-@keyframes dropIn {
-  0% {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes underlineGrow {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 80px;
-    opacity: 1;
+  .cubeContainer {
+    width: 45%;
+    height: 280px;
   }
 }

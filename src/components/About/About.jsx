@@ -1,6 +1,4 @@
-// About.jsx
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./About.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,40 +9,29 @@ import {
   faJsSquare,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import AnimatedLetters from '../AnimatedLetters/AnimatedLetters';
 
 export const About = () => {
-  const [letterClass, setLetterClass] = useState("text-animate");
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLetterClass("text-animate-hover");
-    }, 3000);
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
-    <>
-      {/* About Me Title - Outside Container */}
-      <div className={styles.titleWrapper}>
-        <h2 className={styles.fallHeading}>
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={["A", "b", "o", "u", "t", " ", "M", "e"]}
-            idx={15}
-          />
-        </h2>
-        <div className={styles.underline}></div>
+    <section className={styles.container} id="about">
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionTitle}>About Me</h2>
+        <div className={styles.sectionLine}></div>
       </div>
 
-      {/* About Me Container */}
-      <section className={styles.container} id="about">
+      <div className={styles.content}>
         <div className={styles.textZone}>
           <p>
-            A passionate and driven Computer Engineering undergraduate with a strong interest in mobile and web development, data science, AI, and business intelligence.
+            Final year Computer Engineering undergraduate at the University of
+            Sri Jayewardenepura (GPA&nbsp;3.42), with a strong focus on
+            full-stack development, AI/ML engineering, and cloud-native systems.
+            I enjoy building intelligent applications that solve real-world
+            problems.
           </p>
           <p>
-            Actively engaged in university leadership roles and volunteering, demonstrating excellent teamwork, communication, and problem-solving skills.
+            My work spans NLP chatbots, computer vision pipelines, microservice
+            architectures, and demand forecasting systems. Outside of code, I'm
+            involved in university leadership through CENSOC and the IEEE USJ
+            Student Branch, and I compete in international programming contests.
           </p>
         </div>
 
@@ -70,7 +57,7 @@ export const About = () => {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };

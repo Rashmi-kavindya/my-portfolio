@@ -1,96 +1,141 @@
-/* Navbar.module.css */
-
 @import "../../vars.css";
 
-/* .navbar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 61px;
-  z-index: 2;
-  margin: 0 10%;
-} */
 .navbar {
-  position: fixed; /* Changed from relative to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 61px;
-  z-index: 999; /* Make sure it stays above other content */
-  background-color: var(--color-bg); /* Optional: Add a background to avoid transparency */
-  margin: 0 10%;
+  padding: 20px 8%;
+  z-index: 999;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
-.title {
-  font-size: 30px;
-  font-weight: 600;
+.navbar.scrolled {
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-decoration: none;
-  color: var(--color-text);
-}
-
-.menuBtn {
-  display: none;
+  color: var(--text);
+  background: var(--accent);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
 }
 
 .menu {
   display: flex;
+  align-items: center;
 }
 
 .menuItems {
   display: flex;
-  gap: 47px;
+  gap: 36px;
   list-style: none;
 }
 
 .menuItems a {
-  font-size: 25px;
-  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
   text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.menuItems a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.menuItems a:hover {
+  color: var(--text);
+}
+
+.menuItems a:hover::after {
+  width: 100%;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
 }
 
 @media screen and (max-width: 830px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .menu {
-    position: absolute;
-    right: 0;
-    margin-right: 10%;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 11px;
-    z-index: 3;
+    padding: 16px 6%;
   }
 
   .menuBtn {
     display: block;
-    cursor: pointer;
+    z-index: 4;
+  }
+
+  .menu {
+    position: relative;
   }
 
   .menuItems {
     display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
     flex-direction: column;
-    align-items: center;
-    gap: 13px;
-    border-radius: 10px;
-    background: rgb(25, 55, 109);
-    background: linear-gradient(
-      0deg,
-      rgba(25, 55, 109, 0.2) 0%,
-      rgba(25, 55, 109, 1) 100%
-    );
-    padding: 24px 33px;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    align-items: flex-start;
+    gap: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 0;
+    min-width: 180px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .menuItems li {
+    width: 100%;
+  }
+
+  .menuItems a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .menuItems a::after {
+    display: none;
+  }
+
+  .menuItems a:hover {
+    color: var(--text);
+    background: var(--bg-elevated);
   }
 
   .menuOpen {
     display: flex;
-    z-index: 1;
   }
 }

@@ -1,122 +1,93 @@
-// import React from "react";
-
-// import styles from "./Experience.module.css";
-// import skills from "../../data/skills.json";
-// import history from "../../data/history.json";
-// import { getImageUrl } from "../../utils";
-
-// export const Experience = () => {
-//   return (
-//     <section className={styles.container} id="experience">
-//       <h2 className={styles.title}>Experience</h2>
-//       <div className={styles.content}>
-//         <div className={styles.skills}>
-//           {skills.map((skill, id) => {
-//             return (
-//               <div key={id} className={styles.skill}>
-//                 <div className={styles.skillImageContainer}>
-//                   <img src={getImageUrl(skill.imageSrc)} alt={skill.title} />
-//                 </div>
-//                 <p>{skill.title}</p>
-//               </div>
-//             );
-//           })}
-//         </div>
-//         <ul className={styles.history}>
-//           {history.map((historyItem, id) => {
-//             return (
-//               <li key={id} className={styles.historyItem}>
-//                 <img
-//                   src={getImageUrl(historyItem.imageSrc)}
-//                   alt={`${historyItem.organisation} Logo`}
-//                 />
-//                 <div className={styles.historyItemDetails}>
-//                   <h3>{`${historyItem.role}, ${historyItem.organisation}`}</h3>
-//                   <p>{`${historyItem.startDate} - ${historyItem.endDate}`}</p>
-//                   <ul>
-//                     {historyItem.experiences.map((experience, id) => {
-//                       return <li key={id}>{experience}</li>;
-//                     })}
-//                   </ul>
-//                 </div>
-//               </li>
-//             );
-//           })}
-//         </ul>
-//       </div>
-//     </section>
-//   );
-// };
-
 import React from "react";
 import styles from "./Experience.module.css";
 import foresightlogo from "../../assets/skills/foresightlogo.png";
 
-export const Experience = () => {
-  const technicalSkills = {
-    "Programming Languages": ["C", "C++", "Python", "Dart", "Java", "SQL"],
-    "Web Development": ["HTML", "CSS", "PHP", "Flask", "Laravel"],
-    Tools: [
-      "VS Code",
-      "GitHub",
-      "Android Studio",
-      "Weka",
-      "Cisco Packet Tracer",
-      "Ubuntu OS",
-      "Apache XAMPP",
-      "MATLAB",
-      "Figma",
-    ],
-    Technologies: [
-      "Git",
-      "MySQL",
-      "Firebase",
-      "Firestore",
-      "Numpy",
-      "Pandas",
-      "Google Colab",
-      "Flutter",
-    ],
-  };
+const skills = {
+  Languages: ["Python", "Java", "C", "C++", "Dart", "SQL", "PHP", "JavaScript"],
+  "Web / Mobile": [
+    "Flask", "FastAPI", "Spring Boot", "Laravel", "React", "Next.js",
+    "Node.js", "HTML5", "CSS3", "Bootstrap", "Flutter",
+  ],
+  Databases: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Firestore"],
+  "ML / AI": [
+    "Scikit-learn", "XGBoost", "PyTorch", "YOLOv8", "EfficientNet",
+    "OpenCV", "MediaPipe", "NLTK", "LangChain", "Groq API",
+    "Pandas", "NumPy", "Matplotlib", "Plotly",
+  ],
+  "DevOps / Infra": [
+    "Docker", "Kubernetes", "RabbitMQ", "Redis",
+    "GitHub Actions", "Prometheus", "Grafana", "ELK Stack",
+  ],
+  Tools: [
+    "Git", "Figma", "VS Code", "Jira", "Google Colab",
+    "ROS Noetic", "Roboflow", "MATLAB", "Weka",
+  ],
+};
 
+const internship = {
+  role: "IT Intern — Access Group IT Division",
+  company: "Foresight Residencies (Pvt) Ltd",
+  period: "Mar 2025 – Sep 2025",
+  location: "Colombo, Sri Lanka",
+  bullets: [
+    "Developed an AI-powered HRMS Chatbot (Python, Flask) — evolved from keyword-based to hybrid NLP with NLTK, RAG architecture, voice I/O, and RBAC authenticated via EPF number.",
+    "Built advanced AI analytics: CV screening via sentence-transformers, stationery demand forecasting (Random Forest), and leave/salary anomaly detection with Seaborn/Matplotlib visualisations and PDF reports.",
+    "Wrote complex multi-table SQL queries against the HRMS MySQL database; implemented automated HR letter generation as Word documents using python-docx.",
+    "Contributed to an Entry-Level Employee Management System (PHP, MySQL): built onboarding workflows, automated assessments, and MySQL triggers for gamified badge awarding.",
+  ],
+};
+
+export const Experience = () => {
   return (
     <section className={styles.container} id="experience">
-      <h2 className={styles.title}>Experience</h2>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.sectionTitle}>Experience</h2>
+        <div className={styles.sectionLine}></div>
+      </div>
+
       <div className={styles.content}>
-        {/* TECHNICAL SKILLS SECTION */}
-        <div className={styles.skills}>
-          {Object.entries(technicalSkills).map(([category, skills], index) => (
-            <div key={index} className={styles.skillCategory}>
-              <h3 className={styles.skillCategoryTitle}>{category}</h3>
-              <ul className={styles.skillList}>
-                {skills.map((skill, i) => (
-                  <li key={i} className={styles.skillItem}>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        {/* Skills */}
+        <div className={styles.skillsPanel}>
+          <h3 className={styles.panelTitle}>Technical Skills</h3>
+          <div className={styles.skillsGrid}>
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category} className={styles.skillGroup}>
+                <span className={styles.categoryLabel}>{category}</span>
+                <div className={styles.skillTags}>
+                  {items.map((skill) => (
+                    <span key={skill} className={styles.tag}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* WORK EXPERIENCE SECTION */}
-        <ul className={styles.history}>
-          <li className={styles.historyItem}>
-            <img
-              src={foresightlogo}
-              alt="Foresight Residencies Logo"
-            />
-            <div className={styles.historyItemDetails}>
-              <h3>IT Intern, Foresight Residencies</h3>
-              <p>March 20, 2025 – Present</p>
-              <ul>
-                <li>Supporting IT infrastructure and internal systems.</li>
-                <li>Assisting in software development and debugging tasks.</li>
-                <li>Collaborating with team members to deliver tech solutions.</li>
-              </ul>
+        {/* Work Experience */}
+        <div className={styles.workPanel}>
+          <h3 className={styles.panelTitle}>Work Experience</h3>
+          <div className={styles.timelineItem}>
+            <div className={styles.timelineHeader}>
+              <img
+                src={foresightlogo}
+                alt="Foresight Residencies"
+                className={styles.companyLogo}
+              />
+              <div>
+                <h4 className={styles.role}>{internship.role}</h4>
+                <p className={styles.company}>{internship.company}</p>
+                <p className={styles.period}>
+                  {internship.period} &nbsp;·&nbsp; {internship.location}
+                </p>
+              </div>
             </div>
-          </li>
-        </ul>
+            <ul className={styles.bullets}>
+              {internship.bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
