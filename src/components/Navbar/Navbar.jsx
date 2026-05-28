@@ -4,6 +4,21 @@ import styles from "./Navbar.module.css";
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    const initial =
+      saved ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+    document.documentElement.setAttribute("data-theme", initial);
+    return initial;
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -11,28 +26,40 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleTheme = () =>
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <a className={styles.logo} href="/">RK</a>
-      <div className={styles.menu}>
+      <div className={styles.navRight}>
         <button
-          className={styles.menuBtn}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          className={styles.themeBtn}
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
         >
-          {menuOpen ? "✕" : "☰"}
+          {theme === "dark" ? "☀" : "☾"}
         </button>
-        <ul
-          className={`${styles.menuItems} ${menuOpen ? styles.menuOpen : ""}`}
-          onClick={() => setMenuOpen(false)}
-        >
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div className={styles.menu}>
+          <button
+            className={styles.menuBtn}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+          <ul
+            className={`${styles.menuItems} ${menuOpen ? styles.menuOpen : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

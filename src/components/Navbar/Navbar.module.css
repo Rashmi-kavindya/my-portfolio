@@ -15,7 +15,7 @@
 }
 
 .navbar.scrolled {
-  background: rgba(13, 13, 13, 0.92);
+  background: var(--nav-scrolled-bg);
   backdrop-filter: blur(12px);
   border-bottom-color: var(--border);
 }
@@ -33,6 +33,32 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.themeBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.themeBtn:hover {
+  border-color: var(--accent);
 }
 
 .menu {
@@ -113,7 +139,7 @@
     border-radius: var(--radius);
     padding: 8px 0;
     min-width: 180px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--dropdown-shadow);
   }
 
   .menuItems li {

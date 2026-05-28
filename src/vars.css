@@ -8,6 +8,8 @@
   --text-muted: #94a3b8;
   --border: #262626;
   --radius: 8px;
+  --nav-scrolled-bg: rgba(13, 13, 13, 0.92);
+  --dropdown-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 
   /* Legacy aliases */
   --color-text: #ffffff;
@@ -16,4 +18,21 @@
   --color-dark: #161616;
   --color-bg: #0d0d0d;
   --font-roboto: "Roboto";
+}
+
+[data-theme="light"] {
+  --bg: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-elevated: #f1f3f5;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --nav-scrolled-bg: rgba(248, 249, 250, 0.92);
+  --dropdown-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* Legacy aliases */
+  --color-text: #0f172a;
+  --color-secondary: #f1f3f5;
+  --color-dark: #ffffff;
+  --color-bg: #f8f9fa;
 }
